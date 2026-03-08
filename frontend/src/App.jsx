@@ -5,7 +5,7 @@ import CVManager from './components/CVManager'
 import GenerateButton from './components/GenerateButton'
 import ResultCard from './components/ResultCard'
 import Settings from './components/Settings'
-import useExtensionJob from 'D:/covercraft/extension/useExtensionJob.js'
+import useExtensionJob from "./useExtensionJob";
 import styles from './App.module.css'
 
 export default function App() {
