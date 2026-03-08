@@ -1,0 +1,53 @@
+name: CD
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host:     ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key:      ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ~/covercraft
+            git pull origin master
+            docker compose up -d --build
+            echo "deployed $(date)"
+```
+
+---
+
+Each line explained:
+
+**`on: push: branches: [master]`** — only triggers when code lands on master. Not on feature branches. This means CD only runs on reviewed, merged code.
+
+**`workflow_dispatch:`** — adds a manual trigger button on GitHub. You can go to Actions tab and click "Run workflow" anytime without pushing. Useful for redeploying without code changes.
+
+**`uses: appleboy/ssh-action@v1`** — a pre-built action by a community developer (not GitHub). It handles opening an SSH connection to your server. You pass it credentials and a script to run.
+
+**`${{ secrets.SERVER_HOST }}`** — GitHub replaces this at runtime with the value you stored in your repo secrets. Never exposed in logs or to anyone viewing the file.
+
+**`script: |`** — these commands run ON YOUR SERVER through the SSH connection:
+```
+cd ~/covercraft          → go to where your app lives
+git pull origin master   → download the latest code
+docker compose up -d     → restart containers with new code
+--build                  → rebuild images if anything changed
+echo "deployed $(date)"  → log when it deployed
+```
+
+**Why CD is separate from CI** — CI runs everywhere to catch bugs early. CD only runs on master because you only want to deploy code that has been tested and approved. The flow is:
+```
+feature branch → CI checks → merge to master → CI checks again → CD deploys
