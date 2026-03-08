@@ -1,0 +1,117 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  animation: fadeUp 0.4s ease both;
+  transition: border-color 0.2s;
+}
+.card:focus-within { border-color: var(--border2); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.stepNum {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid var(--teal-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+}
+
+.toggle {
+  display: flex;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.toggleBtn {
+  padding: 6px 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.toggleBtn:hover:not(.active) { color: var(--text-soft); }
+.toggleBtn.active { background: var(--surface3); color: var(--text); }
+.toggleBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.textarea {
+  width: 100%;
+  min-height: 210px;
+  padding: 14px 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px var(--teal-dim);
+}
+
+.textarea:disabled { opacity: 0.45; cursor: not-allowed; }
+.textarea::placeholder { color: var(--text-dim); font-weight: 300; }
+
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px var(--teal-dim);
+}
+
+.input::placeholder { color: var(--text-dim); }
+.input:disabled { opacity: 0.45; }
+
+.hint {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}

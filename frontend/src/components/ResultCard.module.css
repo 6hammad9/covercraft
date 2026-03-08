@@ -1,0 +1,102 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.stepNum {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid var(--teal-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+}
+
+.cvBadge {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid rgba(74,158,255,0.2);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.6rem;
+  margin-left: auto;
+}
+
+.letterBox {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  color: var(--text);
+  max-height: 540px;
+  overflow-y: auto;
+  font-weight: 300;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.btnDownload, .btnCopy, .btnReset {
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.01em;
+}
+
+.btnDownload {
+  background: var(--teal);
+  color: var(--bg);
+  border: none;
+}
+.btnDownload:hover { background: #45d4af; transform: translateY(-1px); box-shadow: 0 4px 16px var(--teal-glow); }
+
+.btnCopy {
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--text-soft);
+}
+.btnCopy:hover { border-color: var(--text-soft); color: var(--text); }
+
+.btnReset {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-left: auto;
+}
+.btnReset:hover { border-color: var(--red); color: var(--red); }

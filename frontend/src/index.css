@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg:          #0d1117;
+  --bg2:         #111820;
+  --surface:     #161d27;
+  --surface2:    #1c2433;
+  --surface3:    #223040;
+  --border:      #253040;
+  --border2:     #2e3f52;
+  --text:        #cdd9e5;
+  --text-soft:   #8da0b3;
+  --text-muted:  #4d6070;
+  --text-dim:    #2d404f;
+  --teal:        #39c5a0;
+  --teal-dim:    rgba(57,197,160,0.1);
+  --teal-glow:   rgba(57,197,160,0.2);
+  --teal-border: rgba(57,197,160,0.25);
+  --blue:        #4a9eff;
+  --blue-dim:    rgba(74,158,255,0.08);
+  --red:         #e05c5c;
+  --red-dim:     rgba(224,92,92,0.1);
+  --gold:        #e8b84b;
+  --radius:      6px;
+  --radius-lg:   10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(57,197,160,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(74,158,255,0.04) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+::selection { background: var(--teal-dim); color: var(--teal); }
